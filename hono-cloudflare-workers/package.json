@@ -1,0 +1,30 @@
+{
+  "name": "api",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy --minify --env production",
+    "log": "wrangler tail postmodr-extension-api",
+    "cf-typegen": "wrangler types --env-interface CloudflareBindings",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "wrangler d1 execute postmodr-extension-db"
+  },
+  "dependencies": {
+    "@ai-sdk/google": "3.0.0-beta.26",
+    "@hono/standard-validator": "^0.1.5",
+    "@scalar/hono-api-reference": "^0.9.22",
+    "ai": "6.0.0-beta.65",
+    "drizzle-orm": "^0.44.6",
+    "hono": "^4.9.10",
+    "hono-openapi": "^1.1.0",
+    "pino": "^10.0.0",
+    "uuid": "^13.0.0",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.31.5",
+    "wrangler": "^4.4.0"
+  },
+  "license": "MIT"
+}

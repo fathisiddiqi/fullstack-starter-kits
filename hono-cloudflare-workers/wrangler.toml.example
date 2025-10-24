@@ -1,0 +1,30 @@
+name = "blog-api-dev"
+main = "src/index.ts"
+compatibility_date = "2025-10-06"
+
+[vars]
+APP_ENV="development"
+
+[d1_databases]
+binding = "DB"
+database_name = "db name"
+database_id = "db id"
+
+[observability]
+enabled = true
+head_sampling_rate = 1
+
+[env.production]
+name = "blog-api"
+
+[env.production.vars]
+APP_ENV="production"
+
+[[env.production.d1_databases]]
+binding = "DB"
+database_name = "blog-db"
+database_id = "234234234234234"
+
+[env.production.observability]
+enabled = true
+head_sampling_rate = 1
