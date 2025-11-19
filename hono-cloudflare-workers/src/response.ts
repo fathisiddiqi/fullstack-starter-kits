@@ -1,6 +1,11 @@
 import { Context } from "hono";
 import { HttpContext, Pagination } from "./types";
-import { BadRequestError, NotFoundError } from "./error";
+import {
+  BadRequestError,
+  NotFoundError,
+  UnauthorizedError,
+  ValidationError,
+} from "./error";
 import z, { ZodError } from "zod";
 
 const buildValidationError = (err: ZodError): object | undefined => {
@@ -24,10 +29,18 @@ export const errorResponse = (c: Context<HttpContext>, err: Error) => {
     message = "validation failed";
     items = buildValidationError(err);
     code = 400;
+  } else if (err instanceof ValidationError) {
+    errName = err.name;
+    message = err.message;
+    code = 400;
   } else if (err instanceof NotFoundError) {
     errName = err.name;
     message = err.message;
     code = 404;
+  } else if (err instanceof UnauthorizedError) {
+    errName = err.name;
+    message = err.message;
+    code = 401;
   }
 
   c.var.logger.error(err);

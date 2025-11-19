@@ -1,6 +1,6 @@
-# Blog API
+# Discussion API
 
-This is API for Blog, this API purpose for managing categories and scan the comments
+This is API for Mini Discussion, this API purpose for managing discussion threads and its replies
 
 ## Prequisities
 
@@ -16,6 +16,12 @@ This is API for Blog, this API purpose for managing categories and scan the comm
 
 ```bash
 mv wrangler.toml.example wrangler.toml
+```
+
+2. set env
+
+```bash
+JWT_SECRET=your preferable secret
 ```
 
 2. install your project
@@ -40,10 +46,34 @@ when planning to use db, you should prepare and running the migration under the 
 pnpm run db:generate
 ```
 
-example result `src/db/generated/0001_loremipsum.sql`
-
 2. run the migration
 
 ```bash
-pnpm run db:migrate --file=src/db/generated/0001_loremipsum.sql
+pnpm run db:migrate
+```
+
+## Deployment Setup
+
+1. run deploy script
+
+```bash
+pnpm run deploy
+```
+
+2. set up .env for db migration
+
+```bash
+mv .env.example .env
+```
+
+3. setup the CLOUDFLARE_ACCOUNT_ID, CLOUDFLARE_DATABASE_ID, CLOUDFLARE_D1_TOKEN
+
+- get CLOUDFLARE_ACCOUNT_ID from dashboard link of cloudflare for example: https://dash.cloudflare.com/account-id-xxxxxxxx
+- get CLOUDFLARE_DATABASE_ID from d1 id
+- get CLOUDFLARE_D1_TOKEN from https://dash.cloudflare.com/profile/api-tokens and set up for d1 READ and WRITE
+
+4. run db migration
+
+```bash
+pnpm run db:deploy
 ```
