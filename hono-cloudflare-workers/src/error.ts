@@ -24,3 +24,12 @@ export class ValidationError extends Error {
     this.message = message;
   }
 }
+
+export class UnauthorizedError extends Error {
+  constructor(message: string) {
+    super(message);
+
+    this.name = "UnauthorizedError";
+    this.message = message;
+  }
+}
