@@ -1,8 +1,8 @@
 import { Context, Next } from "hono";
-import { HttpContext } from "./types";
+import { HttpContext } from "@/types";
 import pino from "pino";
 import { drizzle } from "drizzle-orm/d1";
-import * as schema from "./db/schema";
+import * as schema from "@/db/schema";
 
 const pinoLogger = pino();
 

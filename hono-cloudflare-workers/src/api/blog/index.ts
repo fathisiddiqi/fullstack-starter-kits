@@ -1,11 +1,11 @@
 import { Hono } from "hono";
-import { HttpContext } from "../types";
-import { successResponse } from "../response";
-import { Blog } from "../db/schema";
+import { HttpContext } from "@/types";
+import { successResponse } from "@/lib/response";
+import { Blog } from "@/db/schema";
 import { blogResponseSchema, idSchema } from "./schema";
 import z from "zod";
 import { validator } from "hono/validator";
-import { NotFoundError } from "../error";
+import { NotFoundError } from "@/lib/error";
 
 const blogAPI = new Hono<HttpContext>();
 

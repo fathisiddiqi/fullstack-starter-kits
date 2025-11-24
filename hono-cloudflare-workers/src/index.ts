@@ -1,10 +1,10 @@
 import { Hono } from "hono";
 import { requestId } from "hono/request-id";
 import { cors } from "hono/cors";
-import { HttpContext } from "./types";
-import { dbMiddleware, loggerMiddleware } from "./middleware";
-import { errorResponse } from "./response";
-import blogAPI from "./blog";
+import { HttpContext } from "@/types";
+import { dbMiddleware, loggerMiddleware } from "@/lib/middleware";
+import { errorResponse } from "@/lib/response";
+import blogAPI from "@/api/blog";
 
 const app = new Hono<HttpContext>();
 app.use(cors());

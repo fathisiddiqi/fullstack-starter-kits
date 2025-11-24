@@ -1,6 +1,6 @@
 import { AnyD1Database, DrizzleD1Database } from "drizzle-orm/d1";
 import { Logger } from "pino";
-import * as schema from "./db/schema";
+import * as schema from "@/db/schema";
 
 export type Bindings = {
   DB: AnyD1Database;

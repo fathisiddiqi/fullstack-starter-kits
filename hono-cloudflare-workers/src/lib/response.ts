@@ -1,11 +1,11 @@
 import { Context } from "hono";
-import { HttpContext, Pagination } from "./types";
+import { HttpContext, Pagination } from "@/types";
 import {
   BadRequestError,
   NotFoundError,
   UnauthorizedError,
   ValidationError,
-} from "./error";
+} from "@/lib/error";
 import z, { ZodError } from "zod";
 
 const buildValidationError = (err: ZodError): object | undefined => {
