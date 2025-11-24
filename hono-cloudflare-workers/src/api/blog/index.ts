@@ -1,13 +1,12 @@
-import { Hono } from "hono";
-import { HttpContext } from "@/types";
 import { successResponse } from "@/lib/response";
 import { Blog } from "@/db/schema";
 import { blogResponseSchema, idSchema } from "./schema";
 import z from "zod";
 import { validator } from "hono/validator";
 import { NotFoundError } from "@/lib/error";
+import { appFactory } from "@/lib/app-factory";
 
-const blogAPI = new Hono<HttpContext>();
+const blogAPI = appFactory.createApp();
 
 blogAPI.get(
   "/",
