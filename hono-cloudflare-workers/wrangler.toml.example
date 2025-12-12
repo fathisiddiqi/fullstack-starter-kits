@@ -5,7 +5,7 @@ compatibility_date = "2025-10-06"
 [vars]
 APP_ENV="development"
 
-[d1_databases]
+[[d1_databases]]
 binding = "DB"
 database_name = "db name"
 database_id = "db id"
